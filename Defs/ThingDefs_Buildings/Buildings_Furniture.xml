@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef Name="IluminationBase" Abstract="True">
+		<category>Building</category>
+		<soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<repairEffect>Repair</repairEffect>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<filthLeaving>Filth_RubbleBuilding</filthLeaving>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+		<tickerType>Rare</tickerType>
+		<statBases>
+			<Flammability>0.6</Flammability>
+		</statBases>
+		<designationCategory>Accessories</designationCategory>
+		<thingCategories>
+			<li>BuildingsAccessories</li>
+		</thingCategories>
+	</ThingDef>
+
+	<!--======================================EletricLights======================================-->
+	
+	<!--======================================Ceiling============================================-->
+
+	<ThingDef ParentName="IluminationBase">
+		<defName>RoofLamp</defName>
+		<label>Roof Lamp</label>
+		<thingClass>Building</thingClass>
+		<description>A ceiling lamp that has a 9 glow radius. Must be placed under a roof. Requires 80 W.</description>
+		<graphicData>
+			<texPath>Things/Buildings/CeilingLamp</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.3, 0.6, 0.3)</volume>
+				<offset>(0,0,-0.1)</offset>
+			</shadowData>
+			<shaderType>Transparent</shaderType>
+		</graphicData>
+		<building>
+			<isEdifice>false</isEdifice>
+		</building>
+		<passability>Standable</passability>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<rotatable>false</rotatable>
+		<filthLeaving>Filth_BrokenGlass</filthLeaving>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<statBases>
+			<MaxHitPoints>35</MaxHitPoints>
+			<WorkToBuild>500</WorkToBuild>
+			<Beauty>5</Beauty>
+			<Bulk>8</Bulk>
+			<Mass>2</Mass>
+		</statBases>
+		<costList>
+			<Glass>5</Glass>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<ElectronicComponents>1</ElectronicComponents>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>80</basePowerConsumption>
+				<soundPowerOn>Power_OnSmall</soundPowerOn>
+				<soundPowerOff>Power_OffSmall</soundPowerOff>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>9</glowRadius>
+				<glowColor>(217,217,208,0)</glowColor>
+			</li>
+			<li Class="SK.CompProperties_ColoredLight">
+				<compClass>SK.CompColoredLight</compClass>
+			</li>
+			<li Class="SK.CompProperties_RestrictedPlacement">
+				<compClass>SK.CompRestrictedPlacement</compClass>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>SK.PlaceWorker_OnlyUnderRoof</li>
+		</placeWorkers>		
+		<researchPrerequisites>
+			<li>AirConditioning</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+	<ThingDef ParentName="IluminationBase">
+		<defName>IndustryLamp</defName>
+		<label>Industry Lamp</label>
+		<thingClass>Building</thingClass>
+		<description>An industrial ceiling lamp that has 14 glow radius. Must be placed under a roof. Requires 100 W.</description>
+		<graphicData>
+			<texPath>Things/Buildings/IndustryLamp</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.3, 0.6, 0.3)</volume>
+				<offset>(0,0,-0.1)</offset>
+			</shadowData>
+			<shaderType>Transparent</shaderType>
+		</graphicData>
+		<building>
+			<isEdifice>false</isEdifice>
+		</building>
+		<passability>Standable</passability>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<rotatable>false</rotatable>
+		<filthLeaving>Filth_BrokenGlass</filthLeaving>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<WorkToBuild>600</WorkToBuild>
+			<Beauty>8</Beauty>
+			<Bulk>8</Bulk>
+			<Mass>2</Mass>
+		</statBases>		
+		<costList>
+			<Glass>10</Glass>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<ElectronicComponents>2</ElectronicComponents>
+		</costList>
+		<researchPrerequisites>
+			<li>AirConditioning</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>100</basePowerConsumption>
+				<soundPowerOn>Power_OnSmall</soundPowerOn>
+				<soundPowerOff>Power_OffSmall</soundPowerOff>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>14</glowRadius>
+				<glowColor>(217,217,208,0)</glowColor>
+			</li>
+			<li Class="SK.CompProperties_ColoredLight">
+				<compClass>SK.CompColoredLight</compClass>
+			</li>
+			<li Class="SK.CompProperties_RestrictedPlacement">
+				<compClass>SK.CompRestrictedPlacement</compClass>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>SK.PlaceWorker_OnlyUnderRoof</li>
+		</placeWorkers>
+	</ThingDef>
+	
+	<!--======================================HydroponicLamp======================================-->
+	
+	<ThingDef ParentName="IluminationBase">
+		<defName>HydroponicLamp</defName>
+		<label>Hydroponic Lamp</label>
+		<thingClass>Building</thingClass>
+		<description>Indoor growing ceiling lamp, that has a bigger radius than sun lamp. Can only be placed on ceilings. Requires 1000 W.</description>
+		<graphicData>
+		<texPath>Things/Buildings/HydroponicLamp</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<shadowData>
+			<volume>(0.2, 0.4, 0.2)</volume>
+			<offset>(0,0,-0.1)</offset>
+		</shadowData>
+		</graphicData>
+		<building>
+			<isEdifice>false</isEdifice>
+		</building>
+		<passability>Standable</passability>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<rotatable>false</rotatable>
+		<filthLeaving>Filth_BrokenGlass</filthLeaving>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<specialDisplayRadius>10</specialDisplayRadius>
+		<designationCategory>Misc</designationCategory>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<WorkToBuild>1530</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Bulk>15</Bulk>
+			<Mass>5</Mass>
+		</statBases>    
+		<costList>
+			<Glass>25</Glass>
+			<ComponentIndustrial>15</ComponentIndustrial>	
+			<ElectronicComponents>5</ElectronicComponents>
+		</costList>
+		<researchPrerequisites>
+			<li>SK_IndoorFarming</li>
+			<li>SK_ElectronicsI</li>
+		</researchPrerequisites>
+		 <comps>
+			<li Class="CompProperties_Glower">
+				<overlightRadius>14.0</overlightRadius>
+				<glowRadius>16</glowRadius>
+				<glowColor>(370,370,370,0)</glowColor>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<soundPowerOn>Power_OnSmall</soundPowerOn>
+				<soundPowerOff>Power_OffSmall</soundPowerOff>
+				<basePowerConsumption>1000</basePowerConsumption>
+			</li>
+		  <li Class="SK.CompProperties_AutoFlicker"/>
+		</comps>
+		<placeWorkers>
+				<li>SK.PlaceWorker_OnlyUnderRoof</li>
+		</placeWorkers>
+  </ThingDef>
+  
+  <!--======================================OutdoorsEletric======================================-->
+  
+  	<ThingDef ParentName="LampBase">
+		<defName>LampPost</defName>
+		<label>lamp post</label>
+		<thingClass>Building</thingClass>
+		<description>A outdoors light reflector. Glow radius 20. Requires 150 W.</description>
+		<graphicData>
+			<texPath>Things/Buildings/LampPost</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(6.0,6.0)</drawSize>
+		</graphicData>
+		<uiIconPath>UI/LampPost_ico</uiIconPath>
+		<size>(1,1)</size>
+		<passability>PassThroughOnly</passability>
+		<pathCost>8</pathCost>
+		<altitudeLayer>Building</altitudeLayer>
+		<rotatable>false</rotatable>
+		<fillPercent>0.5</fillPercent>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>500</WorkToBuild>
+			<Beauty>15</Beauty>
+			<Bulk>13</Bulk>
+			<Mass>3</Mass>
+		</statBases>		
+		<costList>
+			<Glass>5</Glass>
+			<ComponentIndustrial>3</ComponentIndustrial>	
+			<ElectronicComponents>2</ElectronicComponents>
+		</costList>
+		<researchPrerequisites>
+			<li>AirConditioning</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>150</basePowerConsumption>
+				<shortCircuitInRain>false</shortCircuitInRain>
+				<soundPowerOn>Power_OnSmall</soundPowerOn>
+				<soundPowerOff>Power_OffSmall</soundPowerOff>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>20</glowRadius>
+				<glowColor>(217,217,225,0)</glowColor>
+			</li>
+			<li Class="SK.CompProperties_ColoredLight">
+				<compClass>SK.CompColoredLight</compClass>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<!--======================================FueledLights======================================-->
+  
+  <ThingDef ParentName="IluminationBase">
+		<defName>Lamparine</defName>
+		<label>Lamparine</label>
+		<thingClass>Building</thingClass>
+		<description>An early option for lighting, requires fuel. Glow radius 8</description>
+		<graphicData>
+			<texPath>Things/Buildings/Lamparine</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+			<drawSize>(1.0,1.0)</drawSize>
+			<damageData>
+				<rect>(0.35,0.35,0.3,0.3)</rect>
+			</damageData>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<passability>PassThroughOnly</passability>
+		<pathCost>8</pathCost>
+		<fillPercent>0.15</fillPercent>
+		<altitudeLayer>Building</altitudeLayer>		
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>80</MaxHitPoints>
+			<WorkToBuild>200</WorkToBuild>
+			<Flammability>0</Flammability>
+			<Bulk>15</Bulk>
+			<Mass>5</Mass>
+		</statBases>
+		<stuffCategories>
+			<li>Stony</li>
+			<li>Metallic</li>
+			<li>Ceramic</li>
+			<li>Precious</li>
+		</stuffCategories>
+		<costStuffCount>25</costStuffCount>
+		<comps>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+			<li Class="CompProperties_Refuelable">
+				<fuelConsumptionRate>9.0</fuelConsumptionRate>
+				<fuelCapacity>20.0</fuelCapacity>
+				<fuelConsumptionPerTickInRain>0.045</fuelConsumptionPerTickInRain>
+				<fuelFilter>
+					<thingDefs>
+						<li>Kindling</li>
+					</thingDefs>
+					<categories>
+						<li>Wooden</li>
+					</categories>
+				</fuelFilter>
+				<destroyOnNoFuel>false</destroyOnNoFuel>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>8</glowRadius>
+				<glowColor>(255,178,64,0)</glowColor>
+			</li>
+			<li Class="SK.CompProperties_HeatPusherAdvanced">
+				<compClass>SK.CompHeatPusherAdvanced</compClass>
+				<heatPerSecond>9</heatPerSecond>
+				<heatPushMaxTemperature>20</heatPushMaxTemperature>
+			</li>
+			<li Class="SK.CompProperties_FireOverlayMod">
+				<fireSize>0.5</fireSize>
+				<offset>(0,0.02,0.1)</offset>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_Heater</li>
+		</placeWorkers>
+	</ThingDef>
+	
+	<ThingDef ParentName="IluminationBase">
+		<defName>JLantern</defName>
+		<label>Japanese Lantern</label>
+		<thingClass>Building</thingClass>
+		<description>An early option for lighting, requires fuel. Glow radius 10, emmits heat.</description>
+		<graphicData>
+			<texPath>Things/Buildings/JLantern</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+			<drawSize>(1.0,1.0)</drawSize>
+			<damageData>
+				<rect>(0.35,0.35,0.3,0.3)</rect>
+			</damageData>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<passability>PassThroughOnly</passability>
+		<pathCost>8</pathCost>
+		<fillPercent>0.15</fillPercent>
+		<altitudeLayer>Building</altitudeLayer>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>80</MaxHitPoints>
+			<WorkToBuild>200</WorkToBuild>
+			<Flammability>0</Flammability>
+			<Bulk>15</Bulk>
+			<Mass>5</Mass>
+		</statBases>
+		<stuffCategories>
+			<li>Stony</li>
+			<li>Metallic</li>
+			<li>Ceramic</li>
+			<li>Precious</li>
+		</stuffCategories>
+		<costStuffCount>35</costStuffCount>
+		<comps>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+			<li Class="CompProperties_Refuelable">
+				<fuelConsumptionRate>8.0</fuelConsumptionRate>
+				<fuelCapacity>20.0</fuelCapacity>
+				<fuelConsumptionPerTickInRain>0.045</fuelConsumptionPerTickInRain>
+				<fuelFilter>
+					<thingDefs>
+						<li>Kindling</li>
+					</thingDefs>
+					<categories>
+						<li>Wooden</li>
+					</categories>
+				</fuelFilter>
+				<destroyOnNoFuel>false</destroyOnNoFuel>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>10</glowRadius>
+				<glowColor>(255,178,64,0)</glowColor>
+			</li>
+			<li Class="SK.CompProperties_HeatPusherAdvanced">
+				<compClass>SK.CompHeatPusherAdvanced</compClass>
+				<heatPerSecond>4</heatPerSecond>
+				<heatPushMaxTemperature>20</heatPushMaxTemperature>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_Heater</li>
+		</placeWorkers>
+	</ThingDef>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </Defs>
+	

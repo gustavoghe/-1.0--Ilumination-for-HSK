@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ArchitectSense.DesignationSubCategoryDef[defName = "SubCategory_Lamps"]/defNames</xpath>
+			<value>
+				<li>IndustryLamp</li>
+				<li>HydroponicLamp</li>
+				<li>LampPost</li>
+				<li>Rooflamp</li>
+			</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ArchitectSense.DesignationSubCategoryDef[defName = "SubCategory_Lights"]/defNames</xpath>
+			<value>
+				<li>Lamparine</li>
+				<li>JLantern</li>
+			</value>
+	</Operation>
+</Patch>
+
+
+
+
+
